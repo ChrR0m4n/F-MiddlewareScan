@@ -110,7 +110,7 @@ def scan_discern(scan_type,host,port):
         elif mark_info[1]=='socket':
             try:
                
-                .setdefaulttimeout(20)
+                socket.setdefaulttimeout(20)
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 sock.connect((str(host),int(port)))
                 re_data=sock.recv(1024)
@@ -182,7 +182,7 @@ Usage: python F-MiddlewareScan.py -h 192.168.1 [-p 7001,8080] [-m 50] [-t 10]
     try:
         options,args = getopt.getopt(sys.argv[1:],"h:p:m:t:")
         ip = ''
-        port = '80,4848,7001,7002,8000,8001,8080,8081,8888,9999,9043,9080'
+        port = '80,873,4848,7001,7002,8000,8001,8080,8081,8888,9999,9043,9080'
         m_count = 100
         for opt,arg in options:
             if opt == '-h':
