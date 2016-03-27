@@ -18,4 +18,8 @@ python F-MiddlewareScan.py -h 10.111.1.22 -p 80,7001,8080 -m 200 -t 6<br>
 新增插件需要在 plugin_config.ini配置文件中新增关联（多个漏洞插件以逗号隔开）。<br>
 中间件识别在discern_config.ini文件中配置（支持文件内容和header识别）<br>
 <br>
-更新支持socket连接方式,以方便写某些功能,如 rsync匿名访问
+主程序更新支持socket连接方式
+<br>
+支持socket连接的服务检测,以方便编写漏洞脚本
+<br>
+新增插件 rsync的匿名访问扫描
