@@ -102,10 +102,25 @@ def scan_discern(scan_type,host,port):
             except urllib2.HTTPError,e:
                 re_html = e.read()
             except Exception,e:
-                return False
+                continue
             if mark_info[3].lower() in re_html.lower():
                 log(scan_type,host,port,mark_info[0])
                 return mark_info[0]
+                
+        elif mark_info[1]=='socket':
+            try:
+                print 'yes socket here'
+                socket.setdefaulttimeout(20)
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock.connect((str(host),int(port)))
+                re_data=sock.recv(1024)
+
+            except Exception , e:
+                continue
+                #return False
+            if mark_info[3].lower() in re_data.lower():
+                log(scan_type,host,port,mark_info[0])
+                return mark_info[0]        
 def scan_vul(scan_type,host,port):
     vul_plugin = read_config("plugin")
     for plugin_name in vul_plugin[scan_type]:
