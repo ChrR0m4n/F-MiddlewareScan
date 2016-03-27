@@ -209,6 +209,7 @@ Usage: python F-MiddlewareScan.py -h 192.168.1 [-p 7001,8080] [-m 50] [-t 10]
                 t.setDaemon(True)
                 t.start()
             queue.join()
+            time.sleep(10)
     except Exception,e:
         print msg
 
