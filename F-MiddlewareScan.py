@@ -109,8 +109,8 @@ def scan_discern(scan_type,host,port):
                 
         elif mark_info[1]=='socket':
             try:
-                print 'yes socket here'
-                socket.setdefaulttimeout(20)
+               
+                .setdefaulttimeout(20)
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 sock.connect((str(host),int(port)))
                 re_data=sock.recv(1024)
